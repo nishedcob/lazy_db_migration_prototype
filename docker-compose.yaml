@@ -14,3 +14,6 @@ services:
     depends_on:
       - db
     env_file: .env
+    volumes:
+      - ./prototype:/prototype
+      - ./data:/data
