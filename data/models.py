@@ -4,16 +4,16 @@ from django.db import models
 
 class Thing(models.Model):
     name = models.CharField(max_length=255, blank=True, default='')
-    date_created = models.DateTimeField(auto_now_add=True)
-    date_modified = models.DateTimeField(auto_now=True)
+    date_created = models.DateTimeField()
+    date_modified = models.DateTimeField()
 
 class UnrelatedThing(models.Model):
     name = models.CharField(max_length=255, blank=True, default='')
-    date_created = models.DateTimeField(auto_now_add=True)
-    date_modified = models.DateTimeField(auto_now=True)
+    date_created = models.DateTimeField()
+    date_modified = models.DateTimeField()
 
 class SubThing(models.Model):
     name = models.CharField(max_length=255, blank=True, default='')
-    date_created = models.DateTimeField(auto_now_add=True)
-    date_modified = models.DateTimeField(auto_now=True)
+    date_created = models.DateTimeField()
+    date_modified = models.DateTimeField()
     thing = models.ForeignKey(Thing, null=True, on_delete=models.CASCADE)
