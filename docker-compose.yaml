@@ -10,7 +10,7 @@ services:
 
   app:
     build: .
-    restart: always # comment out this line prior to one off run commands
+    # restart: always # comment out this line prior to one off run commands
     depends_on:
       - db
     env_file: .env
