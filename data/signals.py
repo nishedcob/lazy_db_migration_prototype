@@ -11,9 +11,11 @@ def thing_update_last_accessed(sender, instance, **kwargs):
     if sender == Thing:
         print("A Thing was just accessed: {}".format(instance), flush=True)
         instance.last_accessed = datetime.datetime.utcnow()
-        instance.save(update_fields=['last_accessed'])
+        if instance.pk is not None:
+            instance.save(update_fields=['last_accessed'])
         print("A Thing just had its access time updated: {}".format(instance), flush=True)
     elif sender == SubThing:
         print("A SubThing was just accessed: {}".format(instance), flush=True)
-        instance.thing.last_accessed = datetime.datetime.utcnow()
+        if instance.thing.pk is not None:
+            instance.thing.last_accessed = datetime.datetime.utcnow()
         instance.thing.save(update_fields=['last_accessed'])
