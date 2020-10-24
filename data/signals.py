@@ -15,3 +15,5 @@ def thing_update_last_accessed(sender, instance, **kwargs):
         print("A Thing just had its access time updated: {}".format(instance), flush=True)
     elif sender == SubThing:
         print("A SubThing was just accessed: {}".format(instance), flush=True)
+        instance.thing.last_accessed = datetime.datetime.utcnow()
+        instance.thing.save(update_fields=['last_accessed'])
