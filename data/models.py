@@ -26,4 +26,4 @@ class SubThing(models.Model):
     thing = models.ForeignKey(Thing, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"id={self.id} name={self.name} created={self.date_created} modified={self.date_modified}"
+        return f"id={self.id} name={self.name} created={self.date_created} modified={self.date_modified} thing={self.thing_id}"
