@@ -9,7 +9,7 @@ class Thing(models.Model):
     last_accessed = models.DateTimeField(blank=True, null=True, default=None)
 
     def __str__(self):
-        return f"id={self.id} name={self.name} created={self.date_created} modified={self.date_modified}"
+        return f"id={self.id} name={self.name} created={self.date_created} modified={self.date_modified} last_accessed={self.last_accessed}"
 
 class UnrelatedThing(models.Model):
     name = models.CharField(max_length=255, blank=True, default='')
